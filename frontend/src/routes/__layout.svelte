@@ -14,11 +14,12 @@
 	$: loading.setNavigate(!!$navigating)
 	$: loading.setLoading(!!$navigating, 'Loading, please wait...')
 
-	import { getCurrentUser, browserGet } from '$lib/utils/requestUtils'
+	import * as StorageService from '$lib/services/localstorage.service'
+	import { getCurrentUser } from '$lib/apis/auth.api'
 	import { variables } from '$lib/utils/constants'
 
 	onMount(async () => {
-		if (browserGet('refreshToken')) {
+		if (StorageService.getStorage('refreshToken')) {
 			const [response, errs] = await getCurrentUser(
 				fetch,
 				`${variables.BASE_API_URI}/token/refresh/`,
@@ -39,7 +40,7 @@
 				notificationData.set('')
 			}, 3000)
 		}
-		if (browserGet('refreshToken')) {
+		if (StorageService.getStorage('refreshToken')) {
 			const [response, _] = await getCurrentUser(
 				fetch,
 				`${variables.BASE_API_URI}/token/refresh/`,
@@ -70,7 +71,6 @@
 
 <footer in:fly={{ y: -50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<p>
-		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit. Coded by
-		<a href="https://github.com/Sirneij/">John O. Idogun</a>.
+		Django + Sveltekit Authorization
 	</p>
 </footer>

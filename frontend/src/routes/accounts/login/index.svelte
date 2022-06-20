@@ -10,6 +10,9 @@
 	import type { CustomError } from '$lib/interfaces/error.interface'
 	import { changeText } from '$lib/helpers/buttonText'
 
+
+	
+
 	let email = '',
 		password = '',
 		errors: Array<CustomError>
@@ -37,7 +40,7 @@
 </script>
 
 <svelte:head>
-	<title>Login | FullStack Django & SvelteKit</title>
+	<title>Login</title>
 </svelte:head>
 
 <section

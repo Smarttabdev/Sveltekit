@@ -12,7 +12,7 @@ To run locally
 
 - Clone this repo:
   ```
-   git clone https://github.com/Sirneij/django_svelte_jwt_auth.git
+   git clone https://github.com/Smarttabdev/Sveltekit.git
   ```
 - Change directory into the `backend` folder:
   ```
@@ -42,3 +42,5 @@ To run locally
 
 [1]: https://dev.to/sirneij/fullstack-jwt-authentication-and-authorization-system-with-django-and-sveltekit-2ih3 "FullStack JWT Authentication and Authorization System with Django and SvelteKit "
 [2]: https://django-sveltekit-jwt-auth.vercel.app/ "FullStack JWT Authentication and Authorization System with Django and SvelteKit Live version."
+
+## That's it! Cool, right? 😍
