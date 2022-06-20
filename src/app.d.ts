@@ -1,19 +1,15 @@
 /// <reference types="@sveltejs/kit" />
 
-// See https://kit.svelte.dev/docs/types#the-app-namespace
+// See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare namespace App {
 	interface Locals {
-		username: string
+		userid: string;
 	}
 
 	// interface Platform {}
 
-	interface Session {
-		user?: {
-			name: string
-		}
-	}
+	// interface Session {}
 
 	// interface Stuff {}
 }
