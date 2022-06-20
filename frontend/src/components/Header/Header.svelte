@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
-	import john from './john.svg';
-	import { userData } from '$lib/store/userStore';
-	import { logOutUser } from '$lib/utils/requestUtils';
+	import { page } from '$app/stores'	
+	import { userData } from '$lib/store/userStore'
+	import { logOutUser } from '$lib/apis/auth.api'
 </script>
 
 <header>
@@ -30,7 +28,7 @@
 					>
 				</li>
 				<li>
-					<a href={null} on:click={logOutUser} style="cursor: pointer;">Logout</a>
+					<a href={null} on:click={logOutUser} style="cursor: pointer">Logout</a>
 				</li>
 			{/if}
 		</ul>

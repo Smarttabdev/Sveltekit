@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import { variables } from '$lib/utils/constants'
-	import { getCurrentUser } from '$lib/utils/requestUtils'
+	import { getCurrentUser } from '$lib/apis/auth.api'
 	import type { Load } from '@sveltejs/kit'
 	import type { User, UserResponse } from '$lib/interfaces/user.interface'
 
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 	import { scale } from 'svelte/transition'
-	import { UpdateField } from '$lib/utils/requestUtils'
+	import { UpdateField } from '$lib/apis/auth.api'
 
 	import { nodeBefore } from '$lib/helpers/whitespacesHelper'
 	export let userResponse: User

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
-	import { goto } from '$app/navigation';
-	import { variables } from '$lib/utils/constants';
-	import { notificationData } from '$lib/store/notificationStore';
-	import { post } from '$lib/utils/requestUtils';
-	import type { CustomError } from '$lib/interfaces/error.interface';
-	import type { UserResponse } from '$lib/interfaces/user.interface';
-	import { changeText } from '$lib/helpers/buttonText';
+	import { fly } from 'svelte/transition'
+	import { goto } from '$app/navigation'
+	import { variables } from '$lib/utils/constants'
+	import { notificationData } from '$lib/store/notificationStore'
+	import * as HttpService from '$lib/services/http.service'
+	import type { CustomError } from '$lib/interfaces/error.interface'
+	import type { UserResponse } from '$lib/interfaces/user.interface'
+	import { changeText } from '$lib/helpers/buttonText'
 
 	let email: string,
 		fullName: string,
@@ -14,9 +14,9 @@
 		username: string,
 		password: string,
 		confirmPassword: string,
-		errors: Array<CustomError>;
+		errors: Array<CustomError>
 	const submitForm = async () => {
-		const [jsonRes, err] = await post(fetch, `${variables.BASE_API_URI}/register/`, {
+		const [jsonRes, err] = await HttpService.post(fetch, `${variables.BASE_API_URI}/register/`, {
 			user: {
 				email: email,
 				username: username,
@@ -24,18 +24,18 @@
 				bio: bio,
 				full_name: fullName
 			}
-		});
-		const response: UserResponse = jsonRes;
+		})
+		const response: UserResponse = jsonRes
 
 		if (err.length > 0) {
-			errors = err;
+			errors = err
 		} else if (response.user) {
-			notificationData.update(() => 'Registration successful. Login now...');
-			await goto('/accounts/login');
+			notificationData.update(() => 'Registration successful. Login now...')
+			await goto('/accounts/login')
 		}
-	};
-	console.log(errors);
-	const passwordConfirm = () => (password !== confirmPassword ? false : true);
+	}
+	console.log(errors)
+	const passwordConfirm = () => (password !== confirmPassword ? false : true)
 </script>
 
 <svelte:head>
