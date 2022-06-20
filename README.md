@@ -1,38 +1,44 @@
-# create-svelte
+# django_svelte_jwt_auth
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is the codebase that follows the series of tutorials on building a [FullStack JWT Authentication and Authorization System with Django and SvelteKit][1].
 
-## Creating a project
+This project was deployed on heroku (backend) and vercel (frontend) and its live version can be accessed [here][2].
 
-If you're seeing this, you've probably already done this step. Congrats!
+To run this application locally, you need to run both the `backend` and `frontend` projects. While the latter has some instructions already for spinning it up, the former can be spinned up following the instructions below.
 
-```bash
-# create a new project in the current directory
-npm init svelte
+## Run locally
 
-# create a new project in my-app
-npm init svelte my-app
-```
+To run locally
 
-## Developing
+- Clone this repo:
+  ```
+   git clone https://github.com/Sirneij/django_svelte_jwt_auth.git
+  ```
+- Change directory into the `backend` folder:
+  ```
+   cd backend
+  ```
+- Create a virtual environment:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+  ```
+   pipenv shell
+  ```
 
-```bash
-npm run dev
+  You might opt for other dependencies management tools such as `virtualenv`, `poetry`, or `venv`. It's up to you.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- Install the dependencies:
+  ```
+  pipenv install
+  ```
+- Make migrations and migrate the database:
+  ```
+   python manage.py makemigrations
+   python manage.py migrate
+  ```
+- Finally, run the application:
+  ```
+   python manage.py runserver
+  ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+[1]: https://dev.to/sirneij/fullstack-jwt-authentication-and-authorization-system-with-django-and-sveltekit-2ih3 "FullStack JWT Authentication and Authorization System with Django and SvelteKit "
+[2]: https://django-sveltekit-jwt-auth.vercel.app/ "FullStack JWT Authentication and Authorization System with Django and SvelteKit Live version."
