@@ -4,7 +4,7 @@
 	import * as HttpService from '$lib/services/http.service'
 	import { goto } from '$app/navigation'
 	import { variables } from '$lib/utils/constants'
-	import { COLOR } from '$lib/utils/theme'
+	import theme from '$lib/utils/theme'
 	import { fly } from 'svelte/transition'
 
 	import type { UserResponse } from '$lib/interfaces/user.interface'
@@ -47,7 +47,7 @@
 	in:fly={{ x: -100, duration: 500, delay: 500 }}
 	out:fly={{ duration: 500 }}
 >
-	<h1 style='color: {COLOR.orange}'>Login</h1>
+	<h1 style='color: {$theme.color.primary}' class="title">Login</h1>
 	
 	{#if errors}
 		{#each errors as error}
@@ -76,4 +76,3 @@
 		<p class="center">No account yet? <a href="/accounts/register">Get started</a>.</p>
 	</form>
 </section>
-

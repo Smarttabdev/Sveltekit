@@ -29,6 +29,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@sveltejs/adapter-vercel": "^1.0.0-next.41"
+    "@sveltejs/adapter-vercel": "^1.0.0-next.41",
+    "svelte-styled-system": "^0.0.5"
   }
 }
